@@ -1,0 +1,26 @@
+{
+  "scoring": {
+    "defaultCorrectPoints": 100,
+    "defaultWrongPenalty": 20,
+    "minPoints": 0,
+    "bonusForSpeed": {
+      "enabled": false,
+      "within30Seconds": 50,
+      "within60Seconds": 25
+    }
+  },
+  "gameplay": {
+    "allowSkipStages": false,
+    "maxTeamMembers": 10,
+    "enableDuplicatePrevention": true,
+    "penalizeWrongStage": true,
+    "penalizeSkippedStage": true,
+    "skipStagePenalty": 50,
+    "wrongQRPenalty": 20
+  },
+  "advanced": {
+    "enableConcurrencyProtection": true,
+    "scanCooldownSeconds": 5,
+    "maxScansPerMinute": 12
+  }
+}

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Treasure Hunt - All Generated QR Codes</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { background-color: #f3f4f6; padding: 24px; color: #1f2937; }
+    header { text-align: center; margin-bottom: 28px; }
+    h1 { font-size: 26px; font-weight: 700; color: #111827; }
+    p.sub { font-size: 14px; color: #6b7280; margin-top: 6px; }
+    .print-all-btn {
+      margin-top: 14px;
+      padding: 10px 20px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .print-all-btn:hover { background: #1d4ed8; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card.start-card {
+      border: 2px solid #10b981;
+      background: #f0fdf4;
+    }
+    .tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 4px 8px;
+      border-radius: 9999px;
+      margin-bottom: 10px;
+    }
+    .tag-start { background: #d1fae5; color: #065f46; }
+    .tag-location { background: #e0e7ff; color: #3730a3; }
+    .location-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 6px;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .qr-img {
+      width: 200px;
+      height: 200px;
+      margin: 12px 0;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      background: white;
+      padding: 8px;
+    }
+    .code-text {
+      font-family: monospace;
+      font-size: 11px;
+      color: #4b5563;
+      word-break: break-all;
+      background: #f9fafb;
+      padding: 6px 10px;
+      border-radius: 6px;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    .meta {
+      font-size: 12px;
+      color: #6b7280;
+    }
+    @media print {
+      body { background: white; padding: 0; }
+      header, .print-all-btn { display: none; }
+      .grid { display: block; }
+      .card {
+        page-break-inside: avoid;
+        margin-bottom: 24px;
+        border: 1px dashed #9ca3af;
+        box-shadow: none;
+      }
+      .qr-img { width: 220px; height: 220px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎯 Treasure Hunt - Generated QR Codes (21)</h1>
+    <p class="sub">All QR codes generated from <code>addHints.js</code> with scannable images</p>
+    <button class="print-all-btn" onclick="window.print()">🖨️ Print All QR Codes</button>
+  </header>
+
+  <div class="grid">
+    
+      <div class="card start-card">
+        <div>
+          <span class="tag tag-start">
+            🎯 START POINT
+          </span>
+          <div class="location-title">Start Point - Main Entrance</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="START" />
+        <div class="code-text">START</div>
+        <div class="meta">
+          Scan to begin hunt
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 1
+          </span>
+          <div class="location-title">2nd Floor, in front of the Director's Den</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="QR_2ND_FLOOR_IN_FRONT_OF_THE_DIRECTORS_DEN" />
+        <div class="code-text">QR_2ND_FLOOR_IN_FRONT_OF_THE_DIRECTORS_DEN</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_001</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 2
+          </span>
+          <div class="location-title">Near C-Lab & ECE Lab-2</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="QR_NEAR_CLAB_ECE_LAB2" />
+        <div class="code-text">QR_NEAR_CLAB_ECE_LAB2</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_002</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 3
+          </span>
+          <div class="location-title">Stairs before the Acad Office Door</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="QR_STAIRS_BEFORE_THE_ACAD_OFFICE_DOOR" />
+        <div class="code-text">QR_STAIRS_BEFORE_THE_ACAD_OFFICE_DOOR</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_003</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 4
+          </span>
+          <div class="location-title">Basement by the TT Table</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAAAklEQVR4AewaftIAAAj1SURBVO3BwXEbQRAEweoJ+O9ySxYsHssTMFRlpn8hSQsMkrTEIElLDJK0xCBJSwyStMQgSUsMkrTEIElLDJK0xCBJSwyStMQgSUsMkrTEIElLDJK0xCBJS7z4AUn4zdryThJO2vKkJPzv2nKShBtteVoSfrO23BgkaYlBkpYYJGmJQZKWGCRpiUGSlhgkaYkX/0BbvlkSPi0J/7u2PKktN5Jwoy232vLNkvCkQZKWGCRpiUGSlhgkaYlBkpYYJGmJQZKWePEFkvCktjytLSdJOGnLJyXhRlt+u7acJOHTkvCktnzSIElLDJK0xCBJSwyStMQgSUsMkrTEIElLvNCPSMJJW75ZWz4tCZu1Rc8aJGmJQZKWGCRpiUGSlhgkaYlBkpYYJGmJF/oKSbjRlpMkPKkt7yThpC03knDSlpMknLRFnzVI0hKDJC0xSNISgyQtMUjSEoMkLTFI0hIvvkBbfrskfLO23EjCO225kYQbSThpy0kSTtryaW35zQZJWmKQpCUGSVpikKQlBklaYpCkJQZJWuLFP5CE/11bTpJw0paTJJy05SQJJ215WhJO2nKShJO2nCThpC0nSThpy60k/M8GSVpikKQlBklaYpCkJQZJWmKQpCUGSVoi/Qt9XBJutOUkCTfa8u2ScKMtN5Jw0hbdGSRpiUGSlhgkaYlBkpYYJGmJQZKWGCRpiUGSlkj/4ssl4aQtN5Jw0pbfLgnfri3fLAknbbmVhCe15SQJN9pyY5CkJQZJWmKQpCUGSVpikKQlBklaYpCkJV78gCQ8qS0nSThpy0lbbiXhpC0nSfiktpwk4aQt7yThk5Jw0paTJNxIwjttOWnLN2vLkwZJWmKQpCUGSVpikKQlBklaYpCkJQZJWuLFP9CWkyR8UhJO2vJOW2605SQJJ205ScKNttxqy0kSntSWG205ScJJW24l4ZPacpKEk7bcGCRpiUGSlhgkaYlBkpYYJGmJQZKWGCRpiRc/oC0nSbiRhJO2nCThpC2floSTtjwpCSdteVpbTpJw0paTJNxoy6e15SQJN9ryzQZJWmKQpCUGSVpikKQlBklaYpCkJQZJWiL9iw9LwpPacpKEp7XlSUk4acunJeGkLSdJuNGWkySctOVGEv53bbkxSNISgyQtMUjSEoMkLTFI0hKDJC0xSNISL75AW24k4UZbTpLwTluelISTtpwk4aQt364tN5Jw0paTJNxoy60k3GjLjSSctOVJgyQtMUjSEoMkLTFI0hKDJC0xSNISgyQt8eIHJOFGW2605UYSbiXhpC0nSbiRhJO2PCkJt5Jwoy0nbXlSW06S8E5bPikJ32yQpCUGSVpikKQlBklaYpCkJQZJWmKQpCVe/IC23EjCk9py0paTJLzTlhttuZGEJyXhaW15UhJ+u7acJOGkLTeScNKWG4MkLTFI0hKDJC0xSNISgyQtMUjSEoMkLfHiByThpC1PastJEm605VYSTtrypCQ8qS2floSTtpwk4UlteScJT2rLSRJutOVJgyQtMUjSEoMkLTFI0hKDJC0xSNISgyQtMUjSEi9+QFtOknCjLU9qy7dLwo22PCkJ77TlJAknbTlpy0kSTtpyIwknbbnVlie15SQJJ0k4acuNQZKWGCRpiUGSlhgkaYlBkpYYJGmJQZKWePEDkvDN2nKShJO2vJOEk7acJOGkLZ+UhFtJOGnLSRJutOVJbTlJwjttuZGE32yQpCUGSVpikKQlBklaYpCkJQZJWmKQpCVe/ANtOUnCSRJutOWkLbfacpKEJyXhpC1Pass7SThJwo22nCThSW05acs7SThpy422bDZI0hKDJC0xSNISgyQtMUjSEoMkLTFI0hIv/oEkfLMk3GrLjbacJOGkLTeScCMJT2vLSRJO2nIjCTeScCsJT0rCk9pyY5CkJQZJWmKQpCUGSVpikKQlBklaYpCkJV78gLbcSMJJW06ScJKEk7Z8WhKelIQbbTlJwjttOUnCSRJO2nKShJO2fFpbNmvLkwZJWmKQpCUGSVpikKQlBklaYpCkJQZJWiL9i0tJuNGWJyXhRls+LQk32vJpSThpy0kSntSWJyXhVlu+WRJO2nJjkKQlBklaYpCkJQZJWmKQpCUGSVpikKQlXvyAtpwk4UlJOGnL05Jw0paTJDwpCd8uCf+7tjwpCSdtOUnCJw2StMQgSUsMkrTEIElLDJK0xCBJSwyStET6F5eScNKWkySctOVGEm605Z0kfLO23EjC09pyIwknbXlSEn67tnzSIElLDJK0xCBJSwyStMQgSUsMkrTEIElLvPgBbbnRlie15dPacpKEJyXhpC0nbTlJwjttOUnCJyXhpC032vK0JJy05SQJ32yQpCUGSVpikKQlBklaYpCkJQZJWmKQpCUGSVrixQ9Iwm/WlnfacpKEk7bcSMJJW24k4aQtt9rypCSctOUkCU9LwklbntSWkySctOVJgyQtMUjSEoMkLTFI0hKDJC0xSNISgyQt8eIfaMs3S8KnJeGkLSdtuZGEk7Z8WhJutOVGW06ScKst36wtnzRI0hKDJC0xSNISgyQtMUjSEoMkLTFI0hIvvkASntSWT2vLSRJuJOFJSThpy60knLTlSUk4acuNJHxaEm605ZMGSVpikKQlBklaYpCkJQZJWmKQpCUGSVrihX5EEk7actKWG235pCS805aTtnxSW06ScKMt7yThpC03kvCkJJy05cYgSUsMkrTEIElLDJK0xCBJSwyStMQgSUu80I9oy0kSTtpyIwknbfm0JDypLZ/Ulqcl4UZbNhskaYlBkpYYJGmJQZKWGCRpiUGSlhgkaYkXX6AtutOWG0m40ZZ3kvCkJDypLU9ry0kSTtpyIwknbTlpy5MGSVpikKQlBklaYpCkJQZJWmKQpCUGSVrixT+QBN1JwklbbrTl09pyIwknbTlJwo0knLTlnSSctOUkCU9KwklbnjRI0hKDJC0xSNISgyQtMUjSEoMkLTFI0hLpX0jSAoMkLTFI0hKDJC0xSNISgyQtMUjSEoMkLTFI0hKDJC0xSNISgyQtMUjSEoMkLTFI0hKDJC3xB38pEk0YmjJSAAAAAElFTkSuQmCC" alt="QR_BASEMENT_BY_THE_TT_TABLE" />
+        <div class="code-text">QR_BASEMENT_BY_THE_TT_TABLE</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_004</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 5
+          </span>
+          <div class="location-title">Trophy Place</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="QR_TROPHY_PLACE" />
+        <div class="code-text">QR_TROPHY_PLACE</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_005</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 6
+          </span>
+          <div class="location-title">Where Packages Rest</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="QR_WHERE_PACKAGES_REST" />
+        <div class="code-text">QR_WHERE_PACKAGES_REST</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_006</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 7
+          </span>
+          <div class="location-title">Gym</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="QR_GYM" />
+        <div class="code-text">QR_GYM</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_007</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 8
+          </span>
+          <div class="location-title">Construction Site</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="QR_CONSTRUCTION_SITE" />
+        <div class="code-text">QR_CONSTRUCTION_SITE</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_008</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 9
+          </span>
+          <div class="location-title">I Love IIIT Spot</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="QR_I_LOVE_IIIT_SPOT" />
+        <div class="code-text">QR_I_LOVE_IIIT_SPOT</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_009</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 10
+          </span>
+          <div class="location-title">Pillar Opposite MEMS Lab (1st Floor)</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="QR_PILLAR_OPPOSITE_MEMS_LAB_1ST_FLOOR" />
+        <div class="code-text">QR_PILLAR_OPPOSITE_MEMS_LAB_1ST_FLOOR</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_010</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 11
+          </span>
+          <div class="location-title">Tree with No Leaves</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="QR_TREE_WITH_NO_LEAVES" />
+        <div class="code-text">QR_TREE_WITH_NO_LEAVES</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_011</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 12
+          </span>
+          <div class="location-title">Library</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAAAklEQVR4AewaftIAAAbRSURBVO3BgY0cCZZDQZIo/13mtQMafGBTl8XWi3B/CAAGRAAwIgKAEREAjIgAYEQEACMiABgRAcCICABGRAAwIgKAEREAjIgAYEQEACMiABgRAcCICABGRAAwIgKAEREAjIgAYMRHf4Ft4b+11YVtPa2tLmzrLW317WwL/62tnhQBwIgIAEZEADAiAoAREQCMiABgRAQAIyIAGBEBwIgIAEZ89LK2+i1s62ltdWFbV7b1pLZ6mm09ra3e0la/hW29JQKAEREAjIgAYEQEACMiABgRAcCICABGRAAwIgKAER+NsK23tNW3a6un2dbTbAt/ZltvaatvFwHAiAgARkQAMCICgBERAIyIAGBEBAAjIgAYEQHAiI/w1Wzroq2ubOuirZ7WVhe2ddFW+HdEADAiAoAREQCMiABgRAQAIyIAGBEBwIgIAEZEADAiAoARH+GrtdWFbV211ZNs66qtnmRbV22FbREAjIgAYEQEACMiABgRAcCICABGRAAwIgKAEREAjPhoRFvhz9rqabZ10VZ4RlvhzyIAGBEBwIgIAEZEADAiAoAREQCMiABgRAQAIyIAGPHRy2wLf2ZbF211ZVsXbXVhW1dt9aS2urKti7Z6mm3hfxcBwIgIAEZEADAiAoAREQCMiABgRAQAIyIAGBEBwIgIAEa4P4R/im09qa2eZltPaytsiwBgRAQAIyIAGBEBwIgIAEZEADAiAoAREQCMiABghPtDA2zroq2ubOstbXVhW09rqyfZ1lVbPcm23tJWb7Gtq7Z6km1dtdWTIgAYEQHAiAgARkQAMCICgBERAIyIAGBEBAAjIgAY4f7Qi2zrLW11YVsXbXVlWxdtdWFbb2mrK9vCn7XV02zroq2+XQQAIyIAGBEBwIgIAEZEADAiAoAREQCMiABgRAQAIyIAGPHRX2BbT2urC9u6sq0n2daCtnqSbV211Vts66KtLmzrqq2eZFtXbXVhW09rqydFADAiAoAREQCMiABgRAQAIyIAGBEBwIgIAEZEADDio7+grf5FbYVn2NZFWz3Nti7aCv+/IgAYEQHAiAgARkQAMCICgBERAIyIAGBEBAAjIgAY4f7Qw2zrLW31NNv6TdrqwrYu2uottnXVVk+yrae11bezrau2elIEACMiABgRAcCICABGRAAwIgKAEREAjIgAYEQEACMiABjx0V/QVle2ddFWF7Z11VZPaqsr27poq9/Etr6dbV201Vts66qtntRWb4kAYEQEACMiABgRAcCICABGRAAwIgKAEREAjIgAYMRHf4FtXbXVb2FbV211YVtPa6sn2dZVW13Y1kVbLbCti7a6aKsr23pLWz0pAoAREQCMiABgRAQAIyIAGBEBwIgIAEZEADAiAoARH/0FbXVlWxdtddFWV7b1pLa6sq0ntdVb2urKti7a6sK2rtrqSbZ11VZPsq2rtvotIgAYEQHAiAgARkQAMCICgBERAIyIAGBEBAAjIgAYEQHACPeHHmZbV231W9jWVVs9ybae1lYXtvWWtrqyrX9RWz3Jtq7a6kkRAIyIAGBEBAAjIgAYEQHAiAgARkQAMCICgBERAIxwfwhfy7be0lZPs61v11Zvsa23tNW3iwBgRAQAIyIAGBEBwIgIAEZEADAiAoAREQCMiABgxEd/gW3hv7XVRVu9xbae1lYXtnXRVle29STbumqrt7TVhW09ra2eFAHAiAgARkQAMCICgBERAIyIAGBEBAAjIgAYEQHAiAgARnz0srb6LWzrabZ10VZPayv8WVu9pa2ubOuirS5s6y0RAIyIAGBEBAAjIgAYEQHAiAgARkQAMCICgBERAIz4aIRtvaWt8Ge29Rbbeppt4TtFADAiAoAREQCMiABgRAQAIyIAGBEBwIgIAEZEADDiI3y1trqwrau2elJbPc223tJWF7b1tLa6sK2rtrqwrYu2eksEACMiABgRAcCICABGRAAwIgKAEREAjIgAYEQEACMiABjxEb6abV201ZVtXbTVhW0taKtvZ1tvaasL27pqqydFADAiAoAREQCMiABgRAQAIyIAGBEBwIgIAEZEADDioxFt9S9qqwvbumqrC9u6aKvfxLYu2uo3sa2LtnpLBAAjIgAYEQHAiAgARkQAMCICgBERAIyIAGBEBAAjPnqZbeE7tdWFbb2lra5s60m2ddVWF7Z10VZXtvUk27pqqydFADAiAoAREQCMiABgRAQAIyIAGBEBwIgIAEZEADAiAoAR7g8BwIAIAEZEADAiAoAREQCMiABgRAQAIyIAGBEBwIgIAEZEADAiAoAREQCMiABgRAQAIyIAGBEBwIgIAEZEADAiAoAR/wf+17FFXWVYrAAAAABJRU5ErkJggg==" alt="QR_LIBRARY" />
+        <div class="code-text">QR_LIBRARY</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_012</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 13
+          </span>
+          <div class="location-title">G05 Corner, Near the Gate Wall</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="QR_G05_CORNER_NEAR_THE_GATE_WALL" />
+        <div class="code-text">QR_G05_CORNER_NEAR_THE_GATE_WALL</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_013</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 14
+          </span>
+          <div class="location-title">Empty Locker 108</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="QR_EMPTY_LOCKER_108" />
+        <div class="code-text">QR_EMPTY_LOCKER_108</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_014</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 15
+          </span>
+          <div class="location-title">4:15 Break — Basement Shop</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="QR_415_BREAK_BASEMENT_SHOP" />
+        <div class="code-text">QR_415_BREAK_BASEMENT_SHOP</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_015</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 16
+          </span>
+          <div class="location-title">Washbasin near the Music Room</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="QR_WASHBASIN_NEAR_THE_MUSIC_ROOM" />
+        <div class="code-text">QR_WASHBASIN_NEAR_THE_MUSIC_ROOM</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_016</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 17
+          </span>
+          <div class="location-title">Behind the Freshers Banner</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="QR_BEHIND_THE_FRESHERS_BANNER" />
+        <div class="code-text">QR_BEHIND_THE_FRESHERS_BANNER</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_017</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 18
+          </span>
+          <div class="location-title">Recharge Point (Canteen Area)</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="QR_RECHARGE_POINT_CANTEEN_AREA" />
+        <div class="code-text">QR_RECHARGE_POINT_CANTEEN_AREA</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_018</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 19
+          </span>
+          <div class="location-title">Room G06 - Hanging AC</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="QR_ROOM_G06_HANGING_AC" />
+        <div class="code-text">QR_ROOM_G06_HANGING_AC</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_019</strong>
+        </div>
+      </div>
+    
+      <div class="card ">
+        <div>
+          <span class="tag tag-location">
+            📍 STAGE 20
+          </span>
+          <div class="location-title">Street Lights</div>
+        </div>
+        <img class="qr-img" src="data:image/png;base64,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" alt="QR_STREET_LIGHTS" />
+        <div class="code-text">QR_STREET_LIGHTS</div>
+        <div class="meta">
+          Points: <strong>100</strong> | Hint: <strong>HINT_020</strong>
+        </div>
+      </div>
+    
+  </div>
+</body>
+</html>

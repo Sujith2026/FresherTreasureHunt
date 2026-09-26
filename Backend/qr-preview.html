@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Codes Preview - Admin Dashboard</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .header {
+        text-align: center;
+        color: white;
+        margin-bottom: 40px;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      .header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .qr-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
+      }
+
+      .qr-card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .qr-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .qr-card.start {
+        border: 3px solid #f59e0b;
+      }
+
+      .qr-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .qr-card.start .qr-header {
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      }
+
+      .qr-header h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
+      .badge {
+        background: rgba(255, 255, 255, 0.3);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+
+      .qr-image-container {
+        padding: 30px;
+        background: #f9fafb;
+        text-align: center;
+      }
+
+      .qr-image {
+        width: 250px;
+        height: 250px;
+        border: 2px solid #e5e7eb;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .qr-info {
+        padding: 20px;
+        background: white;
+      }
+
+      .info-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .info-row:last-child {
+        border-bottom: none;
+      }
+
+      .info-label {
+        font-weight: 600;
+        color: #6b7280;
+      }
+
+      .info-value {
+        color: #111827;
+        font-weight: 500;
+      }
+
+      .qr-actions {
+        padding: 20px;
+        background: #f9fafb;
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+      }
+
+      .btn-download {
+        background: #3b82f6;
+        color: white;
+      }
+
+      .btn-download:hover {
+        background: #2563eb;
+        transform: translateY(-2px);
+      }
+
+      .btn-print {
+        background: #10b981;
+        color: white;
+      }
+
+      .btn-print:hover {
+        background: #059669;
+        transform: translateY(-2px);
+      }
+
+      .loading {
+        text-align: center;
+        color: white;
+        font-size: 1.2rem;
+        padding: 50px;
+      }
+
+      .error {
+        background: #fee2e2;
+        border: 2px solid #ef4444;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 600px;
+        color: #991b1b;
+      }
+
+      .stats {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 20px;
+        background: #f9fafb;
+        border-radius: 10px;
+      }
+
+      .stat-value {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #667eea;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: #6b7280;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🎯 QR Code Management Dashboard</h1>
+        <p>Generated QR codes for the Treasure Hunt Game</p>
+      </div>
+
+      <div id="stats" class="stats" style="display: none">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-value" id="totalQR">0</div>
+            <div class="stat-label">Total QR Codes</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="activeQR">0</div>
+            <div class="stat-label">Active QR Codes</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="totalScans">0</div>
+            <div class="stat-label">Total Scans</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="loading" class="loading">Loading QR codes from server...</div>
+
+      <div id="error" style="display: none"></div>
+
+      <div id="qrGrid" class="qr-grid"></div>
+    </div>
+
+    <script>
+      const API_BASE = "http://localhost:5000/api";
+      let adminToken = ""; // Replace with actual admin token
+
+      // Function to fetch QR codes
+      async function fetchQRCodes() {
+        try {
+          const response = await fetch(`${API_BASE}/admin/qr-images`, {
+            headers: {
+              Authorization: `Bearer ${adminToken}`,
+            },
+          });
+
+          if (!response.ok) {
+            throw new Error(
+              "Failed to fetch QR codes. Please check if server is running and you have admin access."
+            );
+          }
+
+          const data = await response.json();
+          return data.data.qrCodes;
+        } catch (error) {
+          throw error;
+        }
+      }
+
+      // Function to download QR code
+      function downloadQR(qrId, qrCode, qrImage) {
+        const link = document.createElement("a");
+        link.href = qrImage;
+        link.download = `${qrCode}.png`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      // Function to print QR code
+      function printQR(qrCode, qrImage, locationName) {
+        const printWindow = window.open("", "_blank");
+        printWindow.document.write(`
+                <html>
+                    <head>
+                        <title>Print ${qrCode}</title>
+                        <style>
+                            body { 
+                                display: flex; 
+                                flex-direction: column;
+                                justify-content: center; 
+                                align-items: center; 
+                                height: 100vh; 
+                                margin: 0; 
+                                font-family: Arial, sans-serif;
+                            }
+                            h1 { margin-bottom: 10px; }
+                            p { margin: 5px 0; color: #666; }
+                            img { 
+                                width: 300px; 
+                                height: 300px; 
+                                margin: 20px 0;
+                                border: 2px solid #ddd;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>${qrCode}</h1>
+                        <p>${locationName}</p>
+                        <img src="${qrImage}" />
+                        <p>Scan this code to participate in the treasure hunt!</p>
+                    </body>
+                </html>
+            `);
+        printWindow.document.close();
+        setTimeout(() => printWindow.print(), 250);
+      }
+
+      // Function to render QR codes
+      function renderQRCodes(qrCodes) {
+        const grid = document.getElementById("qrGrid");
+        const loading = document.getElementById("loading");
+        const stats = document.getElementById("stats");
+
+        loading.style.display = "none";
+        stats.style.display = "block";
+
+        // Update stats
+        document.getElementById("totalQR").textContent = qrCodes.length;
+        document.getElementById("activeQR").textContent = qrCodes.filter(
+          (qr) => qr.active
+        ).length;
+        document.getElementById("totalScans").textContent = qrCodes.reduce(
+          (sum, qr) => sum + qr.scanCount,
+          0
+        );
+
+        qrCodes.forEach((qr) => {
+          const card = document.createElement("div");
+          card.className = `qr-card ${qr.isStartQR ? "start" : ""}`;
+
+          card.innerHTML = `
+                    <div class="qr-header">
+                        <h3>${qr.code}</h3>
+                        ${
+                          qr.isStartQR ? '<span class="badge">START</span>' : ""
+                        }
+                    </div>
+                    <div class="qr-image-container">
+                        <img src="${qr.qrCodeImage}" alt="${
+            qr.code
+          }" class="qr-image" />
+                    </div>
+                    <div class="qr-info">
+                        <div class="info-row">
+                            <span class="info-label">Location:</span>
+                            <span class="info-value">${qr.locationName}</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Linked Hint:</span>
+                            <span class="info-value">${
+                              qr.linkedHintId || "None"
+                            }</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Points:</span>
+                            <span class="info-value">${qr.points}</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Scans:</span>
+                            <span class="info-value">${qr.scanCount}</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Status:</span>
+                            <span class="info-value">${
+                              qr.active ? "✅ Active" : "❌ Inactive"
+                            }</span>
+                        </div>
+                    </div>
+                    <div class="qr-actions">
+                        <button class="btn btn-download" onclick="downloadQR('${
+                          qr._id
+                        }', '${qr.code}', '${qr.qrCodeImage}')">
+                            📥 Download
+                        </button>
+                        <button class="btn btn-print" onclick="printQR('${
+                          qr.code
+                        }', '${qr.qrCodeImage}', '${qr.locationName}')">
+                            🖨️ Print
+                        </button>
+                    </div>
+                `;
+
+          grid.appendChild(card);
+        });
+      }
+
+      // Function to show error
+      function showError(message) {
+        const loading = document.getElementById("loading");
+        const error = document.getElementById("error");
+
+        loading.style.display = "none";
+        error.style.display = "block";
+        error.className = "error";
+        error.innerHTML = `
+                <h3>⚠️ Error Loading QR Codes</h3>
+                <p>${message}</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">
+                    <strong>Troubleshooting:</strong><br>
+                    1. Make sure the server is running (npm run dev)<br>
+                    2. Check if you're logged in as admin<br>
+                    3. Verify the API_BASE URL is correct<br>
+                    4. Run the seed script: npm run seed:game
+                </p>
+            `;
+      }
+
+      // Initialize on page load
+      async function init() {
+        // For demo purposes, try to load from localStorage or show manual entry
+        adminToken =
+          localStorage.getItem("adminToken") ||
+          prompt("Enter admin token (or leave empty for demo mode):");
+
+        if (!adminToken) {
+          // Demo mode - show message
+          showError(
+            "No admin token provided. Please start the server and login as admin, then paste your token here."
+          );
+          return;
+        }
+
+        try {
+          const qrCodes = await fetchQRCodes();
+          renderQRCodes(qrCodes);
+        } catch (error) {
+          showError(error.message);
+        }
+      }
+
+      // Start the app
+      init();
+    </script>
+  </body>
+</html>

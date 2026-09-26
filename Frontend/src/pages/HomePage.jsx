@@ -16,7 +16,7 @@ function HomePage() {
             📅 <b>Date:</b> 26th September 2026
           </li>
           <li>
-            🕠 <b>Time:</b> 5:30 PM onwards
+            🕙 <b>Time:</b> 10:00 AM onwards
           </li>
           <li>
             📍 <b>Venue:</b> Student Hub
